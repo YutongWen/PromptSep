@@ -12,7 +12,7 @@
 
     
 
-	<title>PromptSep</title>
+	<title>PromptSep</title>  
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Add padding to all table cells */
@@ -41,7 +41,162 @@
 
 <div class="container-fluid pt-7 mt-7 shadow p-7 mb-7 bg-white rounded">
     <div class="text-center">
-    <h1>PromptSep</h1>
+    <h1>PromptSep:</h1>
+    <h1 id="title" style="text-align: center;"> Generative Audio Separation via Multimodal Prompting </h2>
+      
+    <p style="margin:4px 0 2px; font-size:20px;">
+    <span style="font-weight:500;">Yutong Wen<sup>1,2</sup></span>,
+    <span style="font-weight:500;">Ke Chen<sup>1</sup></span>,
+    <span style="font-weight:500;">Prem Seetharaman<sup>1</sup></span>,
+    <span style="font-weight:500;">Oriol Nieto<sup>1</sup></span>,
+    <span style="font-weight:500;">Jiaqi Su<sup>1</sup></span>,
+    <span style="font-weight:500;">Rithesh Kumar<sup>1</sup></span>,
+    <br>
+    <span style="font-weight:500;">Minje Kim<sup>2</sup></span>,
+    <span style="font-weight:500;">Paris Smaragdis<sup>3</sup></span>,
+    <span style="font-weight:500;">Zeyu Jin<sup>1</sup></span>,
+    <span style="font-weight:500;">Justin Salamon<sup>1</sup></span>
+    </p>
+    <br>
+    <p style="margin:0; font-size:18px; line-height:1.3;">
+        <span style="font-weight:500;"><sup>1</sup> Adobe Research</span>
+        &nbsp;&nbsp;
+        <span style="font-weight:500;"><sup>2</sup> University of Illinois Urbana-Champaign</span>
+        &nbsp;&nbsp;
+        <span style="font-weight:500;"><sup>3</sup> MIT</span>
+    </p>
+    <br>
+    <br>
+
+    <!-- <br>
+    <p> 
+        <span><a href="https://github.com/YutongWen/GuideSep">[Code Base]</a></span>
+        <span><a href="https://www.arxiv.org/abs/2507.01339">[arxiv paper]</a></span>
+    </p>
+    <br> -->
+    </div>
+
+    <div style="max-width:1200px; margin:0 auto 32px; font-size:16px; line-height:1.45; text-align:justify;">
+        <p style="margin:0;">
+          <b>Abstract.</b>
+          Recent breakthroughs in language-queried audio source separation (LASS) have shown that generative models can achieve higher separation audio quality than traditional masking-based approaches.
+          However, two key limitations restrict their practical use: (1) users often require operations beyond separation, such as sound removal; and (2) relying solely on text prompts can be unintuitive for specifying sound sources. In this paper, we propose PromptSep to extend LASS into a broader framework for general-purpose sound sepration. PromptSep leverages a conditional diffusion model enhanced with elaborated data simulation to enable both audio extraction and sound removal. To move beyond text-only queries, we incorporate vocal imitation as an additional and more intuitive conditioning modality for our model, by incorporating Sketch2Sound as a data augmentation strategy. Both objective and subjective evaluations on multiple benchmarks demonstrate that PromptSep achieves state-of-the-art performance in sound removal and vocal-imitation-guided source separation, while maintaining competitive results on language-queried source separation.
+        </p>
+    </div>
+
+    <div class="container-fluid pt-7 mt-7 shadow p-7 mb-7 bg-white rounded">
+    <div class="table-responsive pt-3">
+        <h2 id="evaluation results" style="text-align: center;"> Section 1: PromptSep Separation Results with Text Guidance</h2>
+        <table class="table table-hover pt-2">
+        <thead>
+        <tr>
+        <th style="text-align: center">Text Prompt</th>
+        <th style="text-align: center">Mixture</th>
+        <th style="text-align: center">PromptSep (ours)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td style="text-align: center">Fireworks</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/real_0_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/fireworks.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        <tr>
+        <td style="text-align: center">Woman Shouting</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/real_0_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/woman shouting.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        <tr>
+        <td style="text-align: center">Hissing sound</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/real_0_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/hissing sound.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        <tr>
+        <td style="text-align: center">Finger snapping</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/real_1_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/finger snapping.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        <tr>
+        <td style="text-align: center">I want only the male voice, <br>no finger snapping</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/real_1_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/male voice.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        </tbody>
+        </table>
+        <div style="max-width:1200px; margin:0 auto 32px; font-size:16px; line-height:1.45; text-align:justify;">
+            <p style="margin:0;">
+            We notice that the separation result of <b>"Fireworks"</b> contains some residual of <b>"hissing sound."</b> We can instead prompt the model with this more detailed prompt <b>"Fireworks but no hissing"</b> to get a cleaner result:
+            </p>
+        </div>
+
+        <table class="table table-hover pt-2">
+        <tbody>
+        <tr>
+        <td style="text-align: center">Fireworks but no hissing</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/real_0_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/text_cond/fireworks but no hissing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+    <br>
+
+    <div class="container-fluid pt-7 mt-7 shadow p-7 mb-7 bg-white rounded">
+    <div class="table-responsive pt-3">
+        <h2 id="evaluation results" style="text-align: center;"> Section 2: PromptSep Separation Results with Removal Text Operator </h2>
+        <table class="table table-hover pt-2">
+        <thead>
+        <tr>
+        <th style="text-align: center">Text Prompt</th>
+        <th style="text-align: center">Mixture</th>
+        <th style="text-align: center">PromptSep (ours)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td style="text-align: center">Fireworks</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_3_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        <tr>
+        <td style="text-align: center">Woman Shouting</td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_3.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    </div> 
+    <br>
+
+    <div class="container-fluid pt-7 mt-7 shadow p-7 mb-7 bg-white rounded">
+    <div class="table-responsive pt-3">
+        <h2 id="evaluation results" style="text-align: center;"> Section 3: PromptSep Separation Results with Vocal Imitation Guidance </h2>
+        <table class="table table-hover pt-2">
+        <thead>
+        <tr>
+        <th style="text-align: center">Mixture</th>
+        <th style="text-align: center">Vocal Imitation</th>
+        <th style="text-align: center">PromptSep (ours)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_3_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        <tr>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_3.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+
 
    
 

@@ -76,12 +76,34 @@
     <br> -->
     </div>
 
-    <div style="max-width:1200px; margin:0 auto 32px; font-size:16px; line-height:1.45; text-align:justify;">
+    <!-- <div style="max-width:1200px; margin:0 auto 32px; font-size:16px; line-height:1.45; text-align:justify;">
         <p style="margin:0;">
           <b>Abstract.</b>
           Recent breakthroughs in language-queried audio source separation (LASS) have shown that generative models can achieve higher separation audio quality than traditional masking-based approaches.
           However, two key limitations restrict their practical use: (1) users often require operations beyond separation, such as sound removal; and (2) relying solely on text prompts can be unintuitive for specifying sound sources. In this paper, we propose PromptSep to extend LASS into a broader framework for general-purpose sound sepration. PromptSep leverages a conditional diffusion model enhanced with elaborated data simulation to enable both audio extraction and sound removal. To move beyond text-only queries, we incorporate vocal imitation as an additional and more intuitive conditioning modality for our model, by incorporating Sketch2Sound as a data augmentation strategy. Both objective and subjective evaluations on multiple benchmarks demonstrate that PromptSep achieves state-of-the-art performance in sound removal and vocal-imitation-guided source separation, while maintaining competitive results on language-queried source separation.
         </p>
+    </div>
+
+    <br>
+    <h2 id="overview" style="text-align: center;">Model Overview</h2>
+    <img src="images/promptsep_arch.png" alt="PromptSep architecture" class="img-fluid" style="max-width:500px; width:100%; display:block; margin:24px auto 8px;"> -->
+    <div class="row" style="max-width:1200px; margin:0 auto 40px; align-items:flex-start;">
+        <!-- Left column: Model Overview -->
+        <div class="col-md-6" style="text-align:center; margin-bottom:24px;">
+          <h3 id="overview" style="text-align:center; margin-top:0;">Model Overview</h2>
+          <img src="images/promptsep_arch.png"
+               alt="PromptSep architecture"
+               style="max-width:100%; width:80%; max-height:520px; object-fit:contain; display:block; margin:16px auto 0;">
+        </div>
+      
+        <!-- Right column: Abstract -->
+        <div class="col-md-6" style="font-size:16px; line-height:1.45; text-align:justify;">
+          <p style="margin:0;">
+            <b>Abstract.</b>
+            Recent breakthroughs in language-queried audio source separation (LASS) have shown that generative models can achieve higher separation audio quality than traditional masking-based approaches.
+            However, two key limitations restrict their practical use: (1) users often require operations beyond separation, such as sound removal; and (2) relying solely on text prompts can be unintuitive for specifying sound sources. In this paper, we propose PromptSep to extend LASS into a broader framework for general-purpose sound sepration. PromptSep leverages a conditional diffusion model enhanced with elaborated data simulation to enable both audio extraction and sound removal. To move beyond text-only queries, we incorporate vocal imitation as an additional and more intuitive conditioning modality for our model, by incorporating Sketch2Sound as a data augmentation strategy. Both objective and subjective evaluations on multiple benchmarks demonstrate that PromptSep achieves state-of-the-art performance in sound removal and vocal-imitation-guided source separation, while maintaining competitive results on language-queried source separation.
+          </p>
+        </div>
     </div>
 
     <div class="container-fluid pt-7 mt-7 shadow p-7 mb-7 bg-white rounded">
@@ -198,21 +220,18 @@
         </thead>
         <tbody>
         <tr>
-        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_3_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/imit_cond/real_0_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/imit_cond/fireworks_imitation_hissing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/imit_cond/hissing.wav" autoplay/>Your browser does not support the audio element.</audio></td>
         </tr>
         <tr>
-        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0_gt.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_0.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/sc09/sc09_3.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/imit_cond/real_0_mix.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/imit_cond/fireworks_woman_imitation.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+        <td style="text-align: center"><audio controls="controls" style="width: 140px;"><source src="audios/imit_cond/shouting.wav" autoplay/>Your browser does not support the audio element.</audio></td>
         </tr>
         </tbody>
         </table>
     </div>
     </div>
-
-
-   
 
 </div>
